@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 import { store } from './store';
 
-import App from './App.tsx';
+import { App } from './components/App';
 import './index.css';
 
 import '@fontsource/roboto/300.css';
