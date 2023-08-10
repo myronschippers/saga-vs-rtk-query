@@ -25,6 +25,7 @@ export const counterSlice = createSlice({
       state.isLoadingSaga = false;
     },
     fetchByName: (state) => {
+      state.details = null;
       state.isLoadingSaga = true;
     },
   },
