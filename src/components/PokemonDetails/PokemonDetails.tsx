@@ -3,7 +3,6 @@ import {
   Avatar,
   Box,
   Card,
-  CardActionArea,
   CardHeader,
   CardContent,
   Chip,
