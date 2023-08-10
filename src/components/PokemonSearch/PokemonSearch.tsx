@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Box, Paper, IconButton, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-import { setSearch } from '../../store/reducers/pokemon';
+import { setSearch, fetchByName } from '../../store/reducers/pokemon';
 
 import { PokemonSearchProps } from './types';
 
@@ -11,8 +11,13 @@ const PokemonSearch: React.FC<PokemonSearchProps> = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
 
-  function searchPokemon() {
-    dispatch(setSearch({ searchTerm }));
+  function changeSearchTerm(e: ChangeEvent<HTMLInputElement>) {
+    setSearchTerm(e.target.value);
+  }
+
+  async function searchPokemon() {
+    await dispatch(setSearch({ searchTerm }));
+    await dispatch(fetchByName());
     setSearchTerm('');
   }
 
@@ -31,9 +36,7 @@ const PokemonSearch: React.FC<PokemonSearchProps> = () => {
           sx={{ flexGrow: 1 }}
           placeholder="Search by Pokemon Name"
           value={searchTerm}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setSearchTerm(e.target.value)
-          }
+          onChange={changeSearchTerm}
         />
         <IconButton
           type="button"

@@ -1,6 +1,8 @@
+import { PokemonByNameResp } from '../../../api';
+
 export interface PokemonState {
   search: string | null;
-  details: unknown | null;
+  details: PokemonByNameResp | null;
   isLoadingSaga: boolean;
 }
 

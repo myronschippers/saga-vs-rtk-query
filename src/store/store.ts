@@ -1,15 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-// import createSagaMiddleware from 'redux-saga';
+import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from './reducers/_root.reducer';
-// import rootSaga from './sagas/_root.saga';
+import rootSaga from './sagas/_root.saga';
 
-// const sagaMiddleware = createSagaMiddleware();
-const middlewareList = [
-  // sagaMiddleware,
-  logger,
-];
+const sagaMiddleware = createSagaMiddleware();
+const middlewareList = [sagaMiddleware, logger];
 
 // reducers and sagas
 
@@ -21,7 +18,7 @@ const store = configureStore({
   ],
 });
 
-// sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSaga);
 
 export type RootStateType = ReturnType<typeof store.getState>;
 
