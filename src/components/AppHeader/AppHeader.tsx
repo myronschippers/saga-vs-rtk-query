@@ -64,7 +64,7 @@ function AppHeader() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            POKEMON
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -120,7 +120,7 @@ function AppHeader() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            POKEMON
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
