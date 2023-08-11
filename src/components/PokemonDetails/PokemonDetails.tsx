@@ -25,6 +25,11 @@ function PokemonDetails({
 
   return (
     <Card>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="h3" mb={2}>
+          Details
+        </Typography>
+      </CardContent>
       {pokemonDetailsData && (
         <CardHeader
           avatar={
@@ -67,7 +72,12 @@ function PokemonDetails({
               <Stack direction="row" spacing={1}>
                 {pokemonDetailsData &&
                   pokemonDetailsData.abilities.map((abilityItem) => {
-                    return <Chip label={abilityItem.ability.name} />;
+                    return (
+                      <Chip
+                        key={abilityItem.slot}
+                        label={abilityItem.ability.name}
+                      />
+                    );
                   })}
               </Stack>
             </Box>
