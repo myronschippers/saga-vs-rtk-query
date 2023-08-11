@@ -109,4 +109,11 @@ export interface PokemonByNameResp {
   stats: PokemonStatItem[];
   types: PokemonTypeItem[];
   weight: number;
+  evolution_id: number;
+}
+
+export interface PokemonSpeciesTrunk {
+  evolution_chain: {
+    url: string;
+  };
 }
