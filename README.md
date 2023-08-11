@@ -1,4 +1,8 @@
-# React + TypeScript + Vite
+# Redux Async API Calls, Sagas VS RTK Query
+
+This is a side by side comparison looking at the implemintation of [Redux Saga](https://redux-saga.js.org/docs/introduction/GettingStarted) and [RTK Query](https://redux-toolkit.js.org/rtk-query/overview). Both are solving the issue of how to handle Async API Calls as a Redux Middleware.
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
