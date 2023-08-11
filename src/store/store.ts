@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 // For RTK Query
 import { setupListeners } from '@reduxjs/toolkit/query';
 
-import { pokemonApi } from './api/pokemon';
+import { pokemonApi } from './services/pokemon';
 import rootReducer from './reducers/_root.reducer';
 import rootSaga from './sagas/_root.saga';
 

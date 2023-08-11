@@ -10,7 +10,7 @@ import {
 import {
   useGetPokemonEvolutionByIdQuery,
   EvoChainEvolveToItem,
-} from '../../store/api/pokemon';
+} from '../../store/services/pokemon';
 import SpeciesListItem from './SpeciesListItem';
 import { PokemonEvolutionProps } from './types';
 

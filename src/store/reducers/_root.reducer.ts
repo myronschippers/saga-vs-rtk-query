@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import rootApiReducer from '../api/_root.api';
+import rootApiReducer from '../services/_root.services';
 import { pokemonReducer } from './pokemon';
 
 const rootReducer = combineReducers({
