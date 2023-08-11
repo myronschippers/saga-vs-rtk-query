@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { Card, CardContent, Typography } from '@mui/material';
 
 import { selectDetails } from '../../store/reducers/pokemon/pokemon.selectors';
+import { PokemonEvolution } from '../PokemonEvolution';
 
 function PokemonSidebar() {
   const pokemonDetailsData = useSelector(selectDetails);
@@ -13,10 +14,7 @@ function PokemonSidebar() {
           Evolution
         </Typography>
         {pokemonDetailsData && (
-          <Typography>
-            Evolution of {pokemonDetailsData.name.toUpperCase()} with ID,{' '}
-            {pokemonDetailsData.id}
-          </Typography>
+          <PokemonEvolution pokemonId={pokemonDetailsData.id} />
         )}
       </CardContent>
     </Card>
