@@ -2,6 +2,10 @@
 
 This is a side by side comparison looking at the implemintation of [Redux Saga](https://redux-saga.js.org/docs/introduction/GettingStarted) and [RTK Query](https://redux-toolkit.js.org/rtk-query/overview). Both are solving the issue of how to handle Async API Calls as a Redux Middleware.
 
+## API Used
+
+We are using the open [PokeAPI](https://pokeapi.co/docs/v2) for the comparison of the Redux Middleware.
+
 ## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
