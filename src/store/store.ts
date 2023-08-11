@@ -5,6 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 // For RTK Query
 import { setupListeners } from '@reduxjs/toolkit/query';
 
+import { pokemonApi } from './api/pokemon';
 import rootReducer from './reducers/_root.reducer';
 import rootSaga from './sagas/_root.saga';
 
@@ -16,7 +17,7 @@ const middlewareList = [sagaMiddleware, logger];
 const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => [
-    ...getDefaultMiddleware(),
+    ...getDefaultMiddleware().concat(pokemonApi.middleware),
     ...middlewareList,
   ],
 });
