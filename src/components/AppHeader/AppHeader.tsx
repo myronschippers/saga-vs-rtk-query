@@ -18,7 +18,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 // import viteLogo from '/vite.svg';
 import ReactIcon from './ReactIcon';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages: string[] = [];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function AppHeader() {
