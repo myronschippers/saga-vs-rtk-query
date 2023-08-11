@@ -17,7 +17,6 @@ import { PokemonEvolutionProps } from './types';
 function PokemonEvolution({ evolutionId }: PokemonEvolutionProps) {
   const { data, error, isLoading } =
     useGetPokemonEvolutionByIdQuery(evolutionId);
-  console.log('PokemonEvolution - data:', data);
 
   if (isLoading) {
     return <Typography>LOADING</Typography>;
