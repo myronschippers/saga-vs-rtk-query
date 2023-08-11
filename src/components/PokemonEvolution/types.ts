@@ -1,3 +1,8 @@
 export interface PokemonEvolutionProps {
-  pokemonId: number;
+  evolutionId: number;
+}
+
+export interface SpeciesListItemProps {
+  name: string;
+  location: string | null | undefined;
 }

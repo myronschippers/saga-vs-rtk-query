@@ -14,7 +14,7 @@ function PokemonSidebar() {
           Evolution
         </Typography>
         {pokemonDetailsData && (
-          <PokemonEvolution pokemonId={pokemonDetailsData.id} />
+          <PokemonEvolution evolutionId={pokemonDetailsData.evolution_id} />
         )}
       </CardContent>
     </Card>

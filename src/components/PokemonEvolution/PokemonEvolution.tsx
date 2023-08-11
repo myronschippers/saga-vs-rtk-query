@@ -1,43 +1,55 @@
+import { ReactNode } from 'react';
 import {
-  Avatar,
   Divider,
   List,
   ListItem,
-  ListItemAvatar,
   ListItemText,
   Typography,
 } from '@mui/material';
-import ImageIcon from '@mui/icons-material/Image';
 
+import {
+  useGetPokemonEvolutionByIdQuery,
+  EvoChainEvolveToItem,
+} from '../../store/api/pokemon';
+import SpeciesListItem from './SpeciesListItem';
 import { PokemonEvolutionProps } from './types';
 
-function PokemonEvolution({ pokemonId }: PokemonEvolutionProps) {
+function PokemonEvolution({ evolutionId }: PokemonEvolutionProps) {
+  const { data, error, isLoading } =
+    useGetPokemonEvolutionByIdQuery(evolutionId);
+  console.log('PokemonEvolution - data:', data);
+
+  if (isLoading) {
+    return <Typography>LOADING</Typography>;
+  }
+
+  function createEvoSpeciesItem(evoChain: EvoChainEvolveToItem): ReactNode {
+    const locationData = evoChain.evolution_details[0]
+      ? evoChain.evolution_details[0].location
+      : null;
+
+    return (
+      <>
+        <SpeciesListItem name={evoChain.species.name} location={locationData} />
+
+        {evoChain.evolves_to[0] && (
+          <>
+            <Divider variant="inset" component="li" />
+            {createEvoSpeciesItem(evoChain.evolves_to[0])}
+          </>
+        )}
+      </>
+    );
+  }
+
   return (
     <List>
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar>
-            <ImageIcon />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          primary={`PokemonID ${pokemonId}`}
-          secondary={
-            <>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                Ali Connors
-              </Typography>
-              {" — I'll be in your neighborhood doing errands this…"}
-            </>
-          }
-        />
-      </ListItem>
-      <Divider variant="inset" component="li" />
+      {error && (
+        <ListItem alignItems="flex-start">
+          <ListItemText primary="An error has occurred please try again" />
+        </ListItem>
+      )}
+      {data && createEvoSpeciesItem(data.chain)}
     </List>
   );
 }
