@@ -2,6 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 
+// For RTK Query
+import { setupListeners } from '@reduxjs/toolkit/query';
+
 import rootReducer from './reducers/_root.reducer';
 import rootSaga from './sagas/_root.saga';
 
@@ -19,6 +22,9 @@ const store = configureStore({
 });
 
 sagaMiddleware.run(rootSaga);
+// optional, but required for refetchOnFocus/refetchOnReconnect behaviors
+// see `setupListeners` docs - takes an optional callback as the 2nd arg for customization
+setupListeners(store.dispatch);
 
 export type RootStateType = ReturnType<typeof store.getState>;
 
