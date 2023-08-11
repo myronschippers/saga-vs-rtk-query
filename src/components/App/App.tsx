@@ -2,6 +2,7 @@ import { Container, Stack, Grid } from '@mui/material';
 
 import { PokemonDetails } from '../PokemonDetails';
 import { PokemonSearch } from '../PokemonSearch';
+import { PokemonSidebar } from '../PokemonSidebar';
 import { AppHeader } from '../AppHeader';
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
             </Stack>
           </Grid>
           <Grid item xs={4}>
-            OTHER DATA
+            <PokemonSidebar />
           </Grid>
         </Grid>
       </Container>
