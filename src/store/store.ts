@@ -10,17 +10,17 @@ import rootReducer from './reducers/_root.reducer';
 import rootSaga from './sagas/_root.saga';
 
 const sagaMiddleware = createSagaMiddleware();
-const middlewareList = [logger];
+const middlewareList = [logger, pokemonApi.middleware, sagaMiddleware];
 
 // reducers and sagas
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => [
-    ...getDefaultMiddleware().concat(pokemonApi.middleware),
-    ...getDefaultMiddleware().concat(sagaMiddleware),
-    ...middlewareList,
-  ],
+  middleware: (getDefaultMiddleware) => {
+    const finalMiddleware = getDefaultMiddleware().concat(middlewareList);
+
+    return finalMiddleware;
+  },
 });
 
 sagaMiddleware.run(rootSaga);
